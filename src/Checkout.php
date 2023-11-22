@@ -25,6 +25,14 @@ class Checkout
     }
 
     /**
+     * Just a hack for Checkout component (https://github.com/laravel/cashier-paddle/issues/192#issuecomment-1821318236)
+     */
+    public function __toString(): string
+    {
+        return json_encode($this->options());
+    }
+
+    /**
      * Create a new checkout instance for a guest.
      */
     public static function guest(array $items = []): self
